@@ -1,0 +1,25 @@
+$main-c: #ffcc00;
+
+.btn {
+  font-size: 30px;
+  padding: 6px 25px;
+  background-color: $main-c;
+  color: white;
+  font-weight: 700;
+  border: 2px solid $main-c;
+  transition: .06s linear background;
+
+  &:not(:last-child) {
+    margin-right: 1rem;
+  }
+
+  &:hover {
+    color: $main-c;
+    background-color: white;
+    border: 2px solid $main-c;
+  }
+}
+
+.selected {
+  margin-bottom: 3rem;
+}

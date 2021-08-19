@@ -1,5 +1,13 @@
 .App {
   text-align: center;
+  padding: 20px 0;
+}
+
+button {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background-color: inherit;
 }
 
 .App-logo {
