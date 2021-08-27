@@ -3,7 +3,7 @@ import { Button } from "./Button"
 import { useState } from 'react'
 
 const ButtonContainer = () => {
-  const [btnsArr, setBtnsArr] = useState([
+  const [btnsArr, setBtnsArr] = useState([ // Массив всех кнопок
     {
       id: 1,
       name: 1,
@@ -25,26 +25,27 @@ const ButtonContainer = () => {
       isSelected: false
     }
   ])
-  const [isOpenList, setIsOpenList] = useState(false)
-  const selectNewBtn = id => {
+  const [isOpenList, setIsOpenList] = useState(false) // Состояние списка кнопок: открыт список или закрыт
+  const selectNewBtn = id => { // Выбрать новую кнопку, в id передать id кнопки
     const newBtnsArr = btnsArr.map(item => {
       if (item.id == id) {
-        return { ...item, isSelected: true }
+        return { ...item, isSelected: true } // isSelected - выбрана кнопка или нет
       } else {
         return { ...item, isSelected: false }
       }
     })
-    setBtnsArr(newBtnsArr)
-    setIsOpenList(false)
+    setBtnsArr(newBtnsArr) // Обновляем массив кнопок
+    setIsOpenList(false) // Закрываем список кнопок
   }
-  const toggleList = () => {
+  const toggleList = () => { // Раскрываем/закрываем список кнопок
     setIsOpenList(!isOpenList)
   }
-  const notSelectedBtns = btnsArr.filter(item => !item.isSelected)
-  const btnsElements = notSelectedBtns.map(item => {
+  const notSelectedBtns = btnsArr.filter(item => !item.isSelected) // Возвращаем массив со всеми не выбранными кнопками
+  const btnsElements = notSelectedBtns.map(item => { // Возвращаем компонент Button на каждую не выбранную кнопку
     return <Button clickHandler={selectNewBtn} id={item.id} key={item.id} name={item.name} />
   })
-  const selectedBtn = btnsArr.filter(item => item.isSelected)[0]
+  const selectedBtn = btnsArr.filter(item => item.isSelected)[0] // Текущая выбранная кнопка
+
   return (
     <>
       <div className={s.selected}>
